@@ -1,9 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <link rel="stylesheet" type="text/css" href="C:\Users\brink\Documents\Gränsnittsprogrammering\1md031_18_students\public\css\style.css">
+        <title>Burger Pub</title>
+        <meta charset="utf-8"/>
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+        <main>
+            <h1>Welcome to Burger Pub</h1>
+        </main>
+        <Section>
+            <h1>The Burgers</h1>
+            Lets choose one of our tasty, veggie burgers!
+            <p> </p>
+        </Section>
+        <section>
+          <table>
+              <thead>
+                <tr>
+                  <th> Chili Dream </th>
+                  <th> The Cheesy Burger </th>
+                  <th> KAJs Burger </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="https://brands-a.prod.onewp.net/app/uploads/sites/26/2018/05/ro%CC%88kig-burgare-med-karamelliserad-lo%CC%88k.jpg" alt="Hamburger" title="Chili Dream" width="300"></td>
+                  <td><img src="https://www.burgerdudes.se/wp-content/uploads/2019/07/burger_mansion_home_sweet_home_med.jpg" title="The Cheesy Burger" width="300"> </td>
+                  <td> <img src="https://media-cdn.tripadvisor.com/media/photo-p/13/ed/97/b3/bara-burgare.jpg " title="KAJs Burger" width="185"> </td>
+                </tr>
+                <tr>
+                  <td> A dreamy burger with tasty chilimayo.</td>
+                  <td> The most cheesy burger in town. </td>
+                  <td> Kajs own burger with aspargus. </td>
+                </tr>
+                <tr>
+                  <td>The burger contains:<ul>
+                      <li> Gluten </li>
+                      <li> Egg </li></ul></td>
+                  <td>The burger contains:<ul>
+                      <li> Gluten </li>
+                      <li> Lactose </li></ul></td>
+                  <td>The burger contains:<ul>
+                      <li> Gluten </li></ul></td>
+                </tr>
+                <tr>
+                  <td><p> Choose a sidedish: </p>
+                      <ol>
+                          <li> French Fries </li>
+                        <li> Chili Potatoes </li>
+                          <li> Mashed Potatoes </li>
+                      </ol></td>
+                  <td><p> Choose a sidedish: </p>
+                      <ol>
+                          <li> Cheesegratinated French Fries </li>
+                          <li> Grilled Potatoes </li>
+                          <li> Potatoes boiled in cheese </li>
+                      </ol></td>
+                  <td><p> Choose a sidedish: </p>
+                      <ol>
+                          <li> Sweet Potato Fries </li>
+                          <li> Potatoes and Aspargus </li>
+                          <li> Potato Gratin </li>
+                      </ol></td>
+          </table>
+        </section>
+        <section>
+          <h1>The Drinks</h1>
+          <table>
+              <thead>
+                  <tr>
+                      <th> Drink </th>
+                      <th> Taste </th>
+                      <th> Price </th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td> Ginger Beer </td>
+                    <td> Fresh ginger and lime </td>
+                    <td> 75.00 </td>
+                </tr>
+                <tr>
+                    <td> San Pelligrino </td>
+                    <td> Sunwarm italian lemon </td>
+                    <td> 39.00 </td>
+                </tr>
+                <tr>
+                    <td> Red Wine </td>
+                    <td> Berries and vanilla </td>
+                    <td> 79.00 </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <tr>
+                      <td colspan = "3"> All of the drinks are perfect together with a burger. </td>
+                  </tr>
+              </tfoot>
+          </table>
+        </section>
+        <section id="contact">
+          <h1> Customer Information </h1>
+            <p> Fill in the form below to get a home delivery. </p>
+            <h1> Delivery Information </h1>
+            <form>
+            <p> <label for="fullname">Full name</label><br>
+                <input type="text" id = "fullname" name ="fn" required = "required" placeholder="First- and Last name"></p>
+            <p> <label for="email">E-mail</label><br>
+                <input type="email" id = "email" name ="em" required = "required" placeholder="write.your.email@here.se"></p>
+            <p> <label for="adress">Street</label><br>
+                <input type="text" id = "address" name ="sa" required = "required" placeholder="Street name"></p>
+            <p> <label for="housenumb">House</label><br>
+                <input type="number" id = "housenumber" name ="hn" required = "required" placeholder="House number"></p>
+            <p>
+                <label for="paymentmethod">Choose a payment method:</label><br>
+                <select id="payment" name="pm">
+                    <option>Card</option>
+                    <option>Swish</option>
+                    <option>E-Invoice</option>
+                    <option>Invoice</option>
+                </select>
+            </p>
+            <p>
+              <label for = "age">Are you over 18?</label><br>
+              <input type ="radio" id=overeighteen name = age >
+              <label for ="yes">Yes</label><br>
+              <input checked type ="radio" id=undereighteen name = age >
+              <label for ="no">No</label><br>
+              <input type ="radio" id=dontknow name = age >
+              <label for ="notprovide">Do not wish to provide</label><br>
+            </p>
+            </form>
+        </section>
+        <button type = "submit"><img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20"> Place my order! </button>
+        <footer>
+          <p> </p>
+           &copy; 2020 FreddieBurger Inc.
+
+        </footer>
     </body>
 </html>
