@@ -1,48 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="C:\Users\brink\Documents\Gränsnittsprogrammering\1md031_18_students\public\css\style.css">
+        <link rel="stylesheet" type="text/css" href="\css\style.css">
         <title>Burger Pub</title>
         <meta charset="utf-8"/>
+        <h1>The Burger Pub</h1>
     </head>
     <body>
-        <main>
-            <h1>Welcome to Burger Pub</h1>
-        </main>
-        <Section>
+        <Section id="burgers">
             <h1>The Burgers</h1>
             Lets choose one of our tasty, veggie burgers!
             <p> </p>
-        </Section>
-        <section>
-          <table>
+          <table id = "burgertable">
               <thead>
                 <tr>
                   <th> Chili Dream </th>
                   <th> The Cheesy Burger </th>
-                  <th> KAJs Burger </th>
+                  <th> Black Bun Burger </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><img src="https://brands-a.prod.onewp.net/app/uploads/sites/26/2018/05/ro%CC%88kig-burgare-med-karamelliserad-lo%CC%88k.jpg" alt="Hamburger" title="Chili Dream" width="300"></td>
-                  <td><img src="https://www.burgerdudes.se/wp-content/uploads/2019/07/burger_mansion_home_sweet_home_med.jpg" title="The Cheesy Burger" width="300"> </td>
-                  <td> <img src="https://media-cdn.tripadvisor.com/media/photo-p/13/ed/97/b3/bara-burgare.jpg " title="KAJs Burger" width="185"> </td>
+                  <td><img class="image" src="https://brands-a.prod.onewp.net/app/uploads/sites/26/2018/05/ro%CC%88kig-burgare-med-karamelliserad-lo%CC%88k.jpg" alt="Hamburger" title="Chili Dream" height="250"></td>
+                  <td><img class="image"src="https://www.burgerdudes.se/wp-content/uploads/2019/07/burger_mansion_home_sweet_home_med.jpg" title="The Cheesy Burger" height="250"> </td>
+                  <td> <img class="image"src="https://recipecontent.fooby.ch/13700_3-2_480-320.jpg" title="Black Bun Burger" height="250"> </td>
                 </tr>
                 <tr>
                   <td> A dreamy burger with tasty chilimayo.</td>
                   <td> The most cheesy burger in town. </td>
-                  <td> Kajs own burger with aspargus. </td>
+                  <td> A black burger with aspargus and halloumi. </td>
                 </tr>
                 <tr>
                   <td>The burger contains:<ul>
-                      <li> Gluten </li>
-                      <li> Egg </li></ul></td>
+                      <li class="Allergy"> Gluten </li>
+                      <li class="Allergy"> Egg </li></ul></td>
                   <td>The burger contains:<ul>
-                      <li> Gluten </li>
-                      <li> Lactose </li></ul></td>
+                      <li class="Allergy"> Gluten </li>
+                      <li class="Allergy"> Lactose </li></ul></td>
                   <td>The burger contains:<ul>
-                      <li> Gluten </li></ul></td>
+                      <li class="Allergy"> Gluten </li></ul></td>
                 </tr>
                 <tr>
                   <td><p> Choose a sidedish: </p>
@@ -65,9 +61,9 @@
                       </ol></td>
           </table>
         </section>
-        <section>
+        <section id = "drinks">
           <h1>The Drinks</h1>
-          <table>
+          <table id = "drinktable">
               <thead>
                   <tr>
                       <th> Drink </th>
@@ -134,9 +130,8 @@
         </section>
         <button type = "submit"><img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20"> Place my order! </button>
         <footer>
-          <p> </p>
-           &copy; 2020 FreddieBurger Inc.
-
+          <br>
+          &copy; 2020 FreddieBurger Inc.
         </footer>
     </body>
 </html>
