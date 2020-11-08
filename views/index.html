@@ -1,69 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="stylesheet" type="text/css" href="\css\style.css">
     <head>
-        <link rel="stylesheet" type="text/css" href="\css\style.css">
         <title>Burger Pub</title>
         <meta charset="utf-8"/>
-        <h1>The Burger Pub</h1>
     </head>
     <body>
-        <Section id="burgers">
-            <h1>The Burgers</h1>
-            Lets choose one of our tasty, veggie burgers!
-            <p> </p>
-          <table id = "burgertable">
-              <thead>
-                <tr>
-                  <th> Chili Dream </th>
-                  <th> The Cheesy Burger </th>
-                  <th> Black Bun Burger </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><img class="image" src="https://brands-a.prod.onewp.net/app/uploads/sites/26/2018/05/ro%CC%88kig-burgare-med-karamelliserad-lo%CC%88k.jpg" alt="Hamburger" title="Chili Dream" height="250"></td>
-                  <td><img class="image"src="https://www.burgerdudes.se/wp-content/uploads/2019/07/burger_mansion_home_sweet_home_med.jpg" title="The Cheesy Burger" height="250"> </td>
-                  <td> <img class="image"src="https://recipecontent.fooby.ch/13700_3-2_480-320.jpg" title="Black Bun Burger" height="250"> </td>
-                </tr>
-                <tr>
-                  <td> A dreamy burger with tasty chilimayo.</td>
-                  <td> The most cheesy burger in town. </td>
-                  <td> A black burger with aspargus and halloumi. </td>
-                </tr>
-                <tr>
-                  <td>The burger contains:<ul>
-                      <li class="Allergy"> Gluten </li>
-                      <li class="Allergy"> Egg </li></ul></td>
-                  <td>The burger contains:<ul>
-                      <li class="Allergy"> Gluten </li>
-                      <li class="Allergy"> Lactose </li></ul></td>
-                  <td>The burger contains:<ul>
-                      <li class="Allergy"> Gluten </li></ul></td>
-                </tr>
-                <tr>
-                  <td><p> Choose a sidedish: </p>
-                      <ol>
-                          <li> French Fries </li>
-                        <li> Chili Potatoes </li>
-                          <li> Mashed Potatoes </li>
-                      </ol></td>
-                  <td><p> Choose a sidedish: </p>
-                      <ol>
-                          <li> Cheesegratinated French Fries </li>
-                          <li> Grilled Potatoes </li>
-                          <li> Potatoes boiled in cheese </li>
-                      </ol></td>
-                  <td><p> Choose a sidedish: </p>
-                      <ol>
-                          <li> Sweet Potato Fries </li>
-                          <li> Potatoes and Aspargus </li>
-                          <li> Potato Gratin </li>
-                      </ol></td>
-          </table>
+        <section class ="header">
+          <img id = "headerpicture" src ="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-french-fries-horizontal-1537551908.jpg?crop=1xw:0.75xh;center,top&resize=1200:*" >
+          <h1 id="headertext">The Burger Pub</h1>
         </section>
-        <section id = "drinks">
+
+        <Section class="allburgers">
+          <h1>The Burgers</h1>
+            Lets choose one of our tasty, veggie burgers!
+          <br>
+          <div class ="burgermenu">
+            <div class ="burger a">Chili Dream
+                <img class="image" src="https://brands-a.prod.onewp.net/app/uploads/sites/26/2018/05/ro%CC%88kig-burgare-med-karamelliserad-lo%CC%88k.jpg" alt="Hamburger" title="Chili Dream" height="250">
+                <p>A dreamy burger with tasty chilimayo.</p>
+                <p>The burger contains:</p>
+                <ul>
+                    <li class="Bolded"> Gluten </li>
+                    <li class="Bolded"> Egg </li></ul>
+                <p> Choose a sidedish: </p>
+                    <ol>
+                        <li> French Fries </li>
+                        <li> Chili Potatoes </li>
+                        <li> Mashed Potatoes </li>
+                    </ol>
+            </div>
+            <div class ="burger b">The Cheesy Burger
+                <img class="image"src="https://www.burgerdudes.se/wp-content/uploads/2019/07/burger_mansion_home_sweet_home_med.jpg" title="The Cheesy Burger" height="250">
+                <p>The most cheesy burger in town.</p>
+                <p>The burger contains:</p>
+                <ul>
+                    <li class="Bolded"> Gluten </li>
+                    <li class="Bolded"> Lactose </li></ul>
+                <p> Choose a sidedish: </p>
+                    <ol>
+                        <li> Cheesegratinated French Fries </li>
+                        <li> Grilled Potatoes </li>
+                        <li> Potatoes boiled in cheese </li>
+                    </ol>
+            </div>
+            <div class ="burger c">Black Bun Burger
+                <img class="image"src="https://recipecontent.fooby.ch/13700_3-2_480-320.jpg" title="Black Bun Burger" height="250">
+                <p>A black burger with aspargus and halloumi.</p>
+                <p>The burger contains:</p>
+                <ul>
+                    <li class="Bolded"> Gluten </li></ul>
+                <p> Choose a sidedish: </p>
+                    <ol>
+                        <li> Sweet Potato Fries </li>
+                        <li> Potatoes and Aspargus </li>
+                        <li> Potato Gratin </li>
+                    </ol>
+            </div>
+          </div>
+
+        </section>
+        <section class = "drinks">
           <h1>The Drinks</h1>
-          <table id = "drinktable">
+          <div class = "drinktable">
+            <div class = "criteria label"><h4>Drinks</h4>
+              <p> Ginger Beer </p>
+              <p> San Pelligrino </p>
+              <p> Red Wine </p>
+            </div>
+            <div class ="criteria taste"> <h4>Taste</h4>
+              <p> Fresh ginger and lime </p>
+              <p> Sunwarm italian lemon </p>
+              <p> Berries and vanilla </p>
+            </div>
+            <div class = "criteria price"> <h4>Price</h4>
+              <p> 75.00 </p>
+              <p> 39.00 </p>
+              <p> 89.00 </p>
+            </div>
+          </div>
+        </section>
+
+          <!--
               <thead>
                   <tr>
                       <th> Drink </th>
@@ -74,7 +92,7 @@
               <tbody>
                 <tr>
                     <td> Ginger Beer </td>
-                    <td> Fresh ginger and lime </td>
+                    <td>  </td>
                     <td> 75.00 </td>
                 </tr>
                 <tr>
@@ -84,7 +102,7 @@
                 </tr>
                 <tr>
                     <td> Red Wine </td>
-                    <td> Berries and vanilla </td>
+                    <td>  </td>
                     <td> 79.00 </td>
                 </tr>
               </tbody>
@@ -93,9 +111,8 @@
                       <td colspan = "3"> All of the drinks are perfect together with a burger. </td>
                   </tr>
               </tfoot>
-          </table>
-        </section>
-        <section id="contact">
+          </table>-->
+        <section class="contact">
           <h1> Customer Information </h1>
             <p> Fill in the form below to get a home delivery. </p>
             <h1> Delivery Information </h1>

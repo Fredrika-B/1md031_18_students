@@ -1,4 +1,19 @@
+.header {
+  height: 200px;
+  overflow:hidden;
+}
 
+#headerpicture {
+  opacity: 0.5;
+  width: 100%;
+  height: auto;
+}
+#headertext{
+    font-size: 2em;
+    position: absolute;
+    margin-top: -700px;
+    padding: 50px 150px;
+}
 body {
     font-size: 1.3em;
     font-family: "Times new roman";
@@ -6,31 +21,71 @@ body {
 section {
   margin: 60px 5px;
 }
-#burgertable {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.image {
-  margin-left: auto;
-  margin-right: auto;
-}
-.Allergy {
-    font-weight: bold;
-}
 
-#burgers {
+.allburgers {
   background-color: black;
   color: white;
   border: 6px dotted white;
   padding: 1px 10px 1px;
 }
-#drinks {
-  background-color: PeachPuff;
-  border: 4px dotted black;
-  padding: 1px 10px 20px;
+.burgermenu {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 450px 450px 450px;
 }
-#contact {
+.burger {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.3em;
+}
+.a {
+  grid-column: 1 /span 1;
+}
+.b {
+  grid-column: 2 /span 1;
+}
+.c {
+  grid-column: 3 /span 1;
+}
+
+.drinks {
+  background-color: PeachPuff;
+  color: black;
+  border: 4px dotted black;
+  padding: 1px 10px 0px;
+
+}
+.drinktable {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 450px 450px 450px;
+
+}
+.criteria {
+  background-color: peachpuff;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.3em;
+}
+.label {
+  grid-column: 1/span 1;
+}
+.taste {
+  grid-column: 2/span 1;
+}
+.price {
+  grid-column: 3/span 1;
+}
+
+.Bolded {
+  font-weight: bold;
+}
+
+
+
+.contact {
   border: 4px dotted black;
   padding: 1px 10px 1px;
 }
