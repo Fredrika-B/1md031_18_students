@@ -14,6 +14,9 @@
     margin-top: -700px;
     padding: 50px 150px;
 }
+img {
+  width:250px;
+}
 body {
     font-size: 1.3em;
     font-family: "Times new roman";
@@ -31,7 +34,8 @@ section {
 .burgermenu {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 450px 450px 450px;
+  padding: 10px;
+  grid-template-columns: repeat(auto-fill, 250px) ;
 }
 .burger {
   background-color: black;
@@ -82,7 +86,9 @@ section {
 .Bolded {
   font-weight: bold;
 }
-
+.largertext {
+  font-size: 1.3em
+}
 
 
 .contact {

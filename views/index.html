@@ -2,9 +2,9 @@
 <html lang="en">
     <link rel="stylesheet" type="text/css" href="\css\style.css">
     <head>
-        <script src="js/js_script.js"> </script>
-        <script src="https://vuejs.org/js/vue.js"></script> 
-        <script src="js/vue_script.js"> </script>
+        <script src="js/js_script.js" defer> </script>
+        <script src="https://vuejs.org/js/vue.js"></script>
+        <script src="js/vue_script.js" defer> </script>
         <title>Burger Pub</title>
         <meta charset="utf-8"/>
     </head>
@@ -18,7 +18,20 @@
           <h1>The Burgers</h1>
             Lets choose one of our tasty, veggie burgers!
           <br>
-          <div class ="burgermenu">
+          <div class ="burgermenu" id="myVueID">
+            <div v-for="burger in burgers" v-if="burger.lactose == true || burger.gluten == true">
+              <div class="largertext"> {{burger.productName}}</div> <img :src = "burger.image">
+              <div> Burger contains: </div>
+              <div v-if="burger.lactose == true" class="Bolded"> - lactose</div>
+              <div v-if="burger.gluten == true" class="Bolded"> - gluten</div>
+            </div>
+            <div v-else> <div class="largertext">{{burger.productName }}</div> <img :src = "burger.image"> </div>
+          </div>
+      <!--   <div id ="myJSID">
+
+      </div> -->
+
+          <!--<div class ="burgermenu">
             <div class ="burger a">Chili Dream
                 <img class="image" src="https://brands-a.prod.onewp.net/app/uploads/sites/26/2018/05/ro%CC%88kig-burgare-med-karamelliserad-lo%CC%88k.jpg" alt="Hamburger" title="Chili Dream" height="250">
                 <p>A dreamy burger with tasty chilimayo.</p>
@@ -60,7 +73,7 @@
                         <li> Potato Gratin </li>
                     </ol>
             </div>
-          </div>
+          </div>-->
         </section>
 
         <section class = "drinks">
