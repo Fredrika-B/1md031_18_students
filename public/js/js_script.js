@@ -31,3 +31,8 @@ else {
 listItem.appendChild(listValue);
 myMenu.appendChild(listItem);
 }
+
+function myFunction () {
+  document.getElementById("myButtonID").innerHTML = "Button clicked - Order placed!"
+
+}

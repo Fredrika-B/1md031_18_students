@@ -2,6 +2,7 @@
 <html lang="en">
     <link rel="stylesheet" type="text/css" href="\css\style.css">
     <head>
+        <script src="js/menu.js"></script>
         <script src="js/js_script.js" defer> </script>
         <script src="https://vuejs.org/js/vue.js"></script>
         <script src="js/vue_script.js" defer> </script>
@@ -27,53 +28,6 @@
             </div>
             <div v-else> <div class="largertext">{{burger.productName }}</div> <img :src = "burger.image"> </div>
           </div>
-      <!--   <div id ="myJSID">
-
-      </div> -->
-
-          <!--<div class ="burgermenu">
-            <div class ="burger a">Chili Dream
-                <img class="image" src="https://brands-a.prod.onewp.net/app/uploads/sites/26/2018/05/ro%CC%88kig-burgare-med-karamelliserad-lo%CC%88k.jpg" alt="Hamburger" title="Chili Dream" height="250">
-                <p>A dreamy burger with tasty chilimayo.</p>
-                <p>The burger contains:</p>
-                <ul>
-                    <li class="Bolded"> Gluten </li>
-                    <li class="Bolded"> Egg </li></ul>
-                <p> Choose a sidedish: </p>
-                    <ol>
-                        <li> French Fries </li>
-                        <li> Chili Potatoes </li>
-                        <li> Mashed Potatoes </li>
-                    </ol>
-            </div>
-            <div class ="burger b">The Cheesy Burger
-                <img class="image"src="https://www.burgerdudes.se/wp-content/uploads/2019/07/burger_mansion_home_sweet_home_med.jpg" title="The Cheesy Burger" height="250">
-                <p>The most cheesy burger in town.</p>
-                <p>The burger contains:</p>
-                <ul>
-                    <li class="Bolded"> Gluten </li>
-                    <li class="Bolded"> Lactose </li></ul>
-                <p> Choose a sidedish: </p>
-                    <ol>
-                        <li> Cheesegratinated French Fries </li>
-                        <li> Grilled Potatoes </li>
-                        <li> Potatoes boiled in cheese </li>
-                    </ol>
-            </div>
-            <div class ="burger c">Black Bun Burger
-                <img class="image"src="https://recipecontent.fooby.ch/13700_3-2_480-320.jpg" title="Black Bun Burger" height="250">
-                <p>A black burger with aspargus and halloumi.</p>
-                <p>The burger contains:</p>
-                <ul>
-                    <li class="Bolded"> Gluten </li></ul>
-                <p> Choose a sidedish: </p>
-                    <ol>
-                        <li> Sweet Potato Fries </li>
-                        <li> Potatoes and Aspargus </li>
-                        <li> Potato Gratin </li>
-                    </ol>
-            </div>
-          </div>-->
         </section>
 
         <section class = "drinks">
@@ -131,7 +85,8 @@
             </form>
         </section>
 
-        <button type = "submit"><img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20"> Place my order! </button>
+        <button onclick="myFunction()"> <img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20"> Place my order! </button>
+        <p id="myButtonID"></p>
 
         <footer>
           <br>
