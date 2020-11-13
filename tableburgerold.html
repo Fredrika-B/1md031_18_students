@@ -1,0 +1,176 @@
+<!-- TABLE FOR BURGERS
+<table class = "burgertable">
+<thead>
+  <tr>
+    <th> Chili Dream </th>
+    <th> The Cheesy Burger </th>
+    <th> Black Bun Burger </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><img class="image" src="https://brands-a.prod.onewp.net/app/uploads/sites/26/2018/05/ro%CC%88kig-burgare-med-karamelliserad-lo%CC%88k.jpg" alt="Hamburger" title="Chili Dream" height="250"></td>
+    <td><img class="image"src="https://www.burgerdudes.se/wp-content/uploads/2019/07/burger_mansion_home_sweet_home_med.jpg" title="The Cheesy Burger" height="250"> </td>
+    <td> <img class="image"src="https://recipecontent.fooby.ch/13700_3-2_480-320.jpg" title="Black Bun Burger" height="250"> </td>
+  </tr>
+  <tr>
+    <td> A dreamy burger with tasty chilimayo.</td>
+    <td> The most cheesy burger in town. </td>
+    <td> A black burger with aspargus and halloumi. </td>
+  </tr>
+  <tr>
+    <td>The burger contains:<ul>
+        <li class="Allergy"> Gluten </li>
+        <li class="Allergy"> Egg </li></ul></td>
+    <td>The burger contains:<ul>
+        <li class="Allergy"> Gluten </li>
+        <li class="Allergy"> Lactose </li></ul></td>
+    <td>The burger contains:<ul>
+        <li class="Allergy"> Gluten </li></ul></td>
+  </tr>
+  <tr>
+    <td><p> Choose a sidedish: </p>
+        <ol>
+            <li> French Fries </li>
+          <li> Chili Potatoes </li>
+            <li> Mashed Potatoes </li>
+        </ol></td>
+    <td><p> Choose a sidedish: </p>
+        <ol>
+            <li> Cheesegratinated French Fries </li>
+            <li> Grilled Potatoes </li>
+            <li> Potatoes boiled in cheese </li>
+        </ol></td>
+    <td><p> Choose a sidedish: </p>
+        <ol>
+            <li> Sweet Potato Fries </li>
+            <li> Potatoes and Aspargus </li>
+            <li> Potato Gratin </li>
+        </ol></td>
+</table>
+-->
+
+          <!--
+              <thead>
+                  <tr>
+                      <th> Drink </th>
+                      <th> Taste </th>
+                      <th> Price </th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td> Ginger Beer </td>
+                    <td>  </td>
+                    <td> 75.00 </td>
+                </tr>
+                <tr>
+                    <td> San Pelligrino </td>
+                    <td> Sunwarm italian lemon </td>
+                    <td> 39.00 </td>
+                </tr>
+                <tr>
+                    <td> Red Wine </td>
+                    <td>  </td>
+                    <td> 79.00 </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                  <tr>
+                      <td colspan = "3"> All of the drinks are perfect together with a burger. </td>
+                  </tr>
+              </tfoot>
+          </table>-->
+
+
+  <!-- BURGERMENU JS
+  HTML:
+  <script src="https://vuejs.org/js/vue.js"></script>
+
+<div id="myID">
+  <h1> Choose a hamburger and a sideorder </h1>
+
+
+  <ol id ="jsID">
+
+  </ol>
+
+</div>
+
+JS:
+  function MenuItem(pname, lactose, gluten, sorder) {
+  this.productName = pname;
+  this.lactose = lactose;
+  this.gluten = gluten;
+  this.sideOrder = sorder;
+}
+var burger1 = new MenuItem("Chili Dream", false, false, "French Fries");
+var burger2 = new MenuItem("Chili Dream", true,true, "Chili Potatoes");
+var burger3 = new MenuItem("Cheesy Burger", true,true, "Cheesegratinated French Fries");
+var burger4 = new MenuItem("Cheesy Burger", true,true, "Grilled Potatoes");
+var burger5 = new MenuItem("Black Bun Burger", false,true, "Potato Gratin");
+var burger6 = new MenuItem("Black Bun Burger", false,true, "Potatoes and Aspargus");
+
+var burgerlist = [burger1, burger2, burger3, burger4, burger5, burger6];
+
+var myMenu = document.getElementById("jsID");
+var i = 0;
+for (i; i< burgerlist.length; i++){
+	var item = burgerlist[i];
+  var listItem = document.createElement("li");
+	if (item.lactose == true || item.gluten == true ){
+    var listValue = document.createTextNode(item.productName + " (contains gluten and/or lactose)");
+   }
+  else {
+    var listValue = document.createTextNode(item.productName);
+  }
+  listItem.appendChild(listValue);
+  myMenu.appendChild(listItem);
+}
+ -->
+
+ <!-- BURGERMENU Vue
+ html
+ <script src="https://vuejs.org/js/vue.js"></script>
+
+ <div>
+   <h1> Choose a hamburger and a sideorder </h1>
+   <ol id="myID">
+     <li v-for="burger in burgers" v-if="burger.lac == true || burger.glu == true"> {{burger.name }} {{burger.allinfo}}
+     </li>
+     <li v-else> {{burger.name }} </li>
+   </ol>
+
+ </div>
+ Vue
+ function MenuItem(pname, lactose, gluten, sorder) {
+  this.productName = pname;
+  this.lactose = lactose;
+  this.gluten = gluten;
+  this.sideOrder = sorder;
+}
+var burger1 = new MenuItem("Chili Dream", false, false, "French Fries");
+var burger2 = new MenuItem("Chili Dream", true,true, "Chili Potatoes");
+var burger3 = new MenuItem("Cheesy Burger", true,true, "Cheesegratinated French Fries");
+var burger4 = new MenuItem("Cheesy Burger", true,true, "Grilled Potatoes");
+var burger5 = new MenuItem("Black Bun Burger", false,true, "Potato Gratin");
+var burger6 = new MenuItem("Black Bun Burger", false,true, "Potatoes and Aspargus");
+
+var burgerlist = [burger1, burger2, burger3, burger4, burger5, burger6];
+
+var vm = new Vue({
+  el: '#myID',
+  data: {
+  burgers:[
+  {name: burger1.productName, lac:burger1.lactose, glu:burger1.gluten, allinfo:"(contains gluten/lactose)"},
+  {name: burger2.productName, lac:burger2.lactose, glu:burger2.gluten, allinfo:"(contains gluten/lactose)"},
+  {name: burger3.productName, lac:burger3.lactose, glu:burger3.gluten, allinfo:"(contains gluten/lactose)"},
+  {name: burger4.productName, lac:burger4.lactose, glu:burger4.gluten, allinfo:"(contains gluten/lactose)"},
+  {name: burger5.productName, lac:burger5.lactose, glu:burger5.gluten, allinfo:"(contains gluten/lactose)"},
+  {name: burger6.productName, lac:burger6.lactose, glu:burger6.gluten, allinfo:"(contains gluten/lactose)"},
+       ] },
+
+})
+
+
+-->
