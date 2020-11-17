@@ -44,6 +44,8 @@ function getInputText() {
   var housenumberValue = document.getElementById('housenumber').value
   var payment = document.getElementById('payment').value
   var age = document.getElementsByName('age')
+  var burgerBox = document.getElementsByName('burger')
+
   array.push(fullnameValue);
   array.push(emailValue);
   array.push(adressValue);
@@ -52,10 +54,18 @@ function getInputText() {
 
   for (var i = 0, length = age.length; i< length ; i++) {
     if (age[i].checked) {
-      array.push(age[i].value);
+      array.push((age[i].value));
+    }
+  }
+  for (var i = 0, length = burgerBox.length; i< length ; i++) {
+    if (burgerBox[i].checked) {
+      array.push((burgerBox[i].value));
     }
   }
   return array
 }
 export {getInputText};
+
+
+
 //module.exports = getInputText;

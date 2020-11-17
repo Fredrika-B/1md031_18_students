@@ -7,13 +7,28 @@ var vm = new Vue({
     },
   methods: {
     getInputText: function() {
-    //  import {getInputText} from 'js/js_script.js';
-    textOrderInfo.textContent = getInputText();
-    console.log("Button Clicked")
-    console.log(getInputText());
+    console.log(getInputText()[6])
+    if (getInputText()[6] !== undefined) {
+        textOrderInfo.textContent = "Ordered burger: " + getInputText()[6]
+        + ". Your contact info:  "
+        + getInputText()[0]
+        + ", " + getInputText()[1]
+        + ", " + getInputText()[2]
+        + " " + getInputText()[3]
+        + ", " + getInputText()[4]
+        + ", " + getInputText()[5]
+      }
+    else {
+      textOrderInfo.textContent = "Your contact info: "
+      + getInputText()[0]
+      + ", " + getInputText()[1]
+      + ", " + getInputText()[2]
+      + " " + getInputText()[3]
+      + ", " + getInputText()[4]
+      + ", " + getInputText()[5]
 
     }
-
+    }
   }
 })
 /*

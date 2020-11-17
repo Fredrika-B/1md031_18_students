@@ -26,10 +26,28 @@
               <div> Burger contains: </div>
               <div v-if="burger.lactose == true" class="Bolded"> - lactose</div>
               <div v-if="burger.gluten == true" class="Bolded"> - gluten</div>
+              <label for = "burger"> Choose: {{burger.productName}}</label><br>
+              <input type ="checkbox" id="burgerID" name = "burger" :value = "burger.productName" >
             </div>
-            <div v-else> <div class="largertext">{{burger.productName }}</div> <img :src = "burger.image"> </div>
+            <div v-else> <div class="largertext">{{burger.productName }}</div> <img :src = "burger.image">
+            <label for = "burger"> Choose: {{burger.productName}}</label><br>
+            <input type ="checkbox" id="burgerID" name = "burger" :value = "buger.productName">
+            </div>
+
           </div>
         </section>
+
+<!--
+        <p>
+          <label for = "age">Are you over 18?</label><br>
+          <input type ="radio" id="overeighteen" name = "age" value="Over eighteen">
+          <label for ="yes">Yes</label><br>
+          <input checked type ="radio" id="undereighteen" name = "age" value="Under eighteen">
+          <label for ="no">No</label><br>
+          <input type ="radio" id="dontknow" name = "age" value="Do not wish to provide">
+          <label for ="notprovide">Do not wish to provide</label><br>
+        </p>
+-->
 
         <section class = "drinks">
           <h1>The Drinks</h1>
@@ -76,14 +94,14 @@
             </p>
             <p>
               <label for = "age">Are you over 18?</label><br>
-              <input type ="radio" id="overeighteen" name = "age" >
+              <input type ="radio" id="overeighteen" name = "age" value="Over eighteen">
               <label for ="yes">Yes</label><br>
-              <input checked type ="radio" id="undereighteen" name = "age" >
+              <input checked type ="radio" id="undereighteen" name = "age" value="Under eighteen">
               <label for ="no">No</label><br>
-              <input type ="radio" id="dontknow" name = "age" >
+              <input type ="radio" id="dontknow" name = "age" value="Do not wish to provide">
               <label for ="notprovide">Do not wish to provide</label><br>
             </p>
-        
+
             </form>
         </section>
 <!--
@@ -96,7 +114,7 @@
             Place my order!
       <!--    <div id ="contactID" v-on:click=" getInputTexts "> </div> -->
           </button>
-        <div> Kontaktinfo<p id="textOrderInfo"> </p> </div>
+        <div v-on:click="getInputText()"> <p id="textOrderInfo"> </p> </div>
         </div>
 
       </main>
