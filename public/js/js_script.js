@@ -1,7 +1,4 @@
-
-
-
-
+/*
 function MenuItem(pname, lactose, gluten, sorder) {
 this.productName = pname;
 this.lactose = lactose;
@@ -31,8 +28,34 @@ else {
 listItem.appendChild(listValue);
 myMenu.appendChild(listItem);
 }
-
+*/
+/*
 function myFunction () {
   document.getElementById("myButtonID").innerHTML = "Button clicked - Order placed!"
-
+  console.log("Button clicked - Order placed")
 }
+*/
+
+function getInputText() {
+  var array = [];
+  var fullnameValue = document.getElementById('fullname').value
+  var emailValue = document.getElementById('email').value
+  var adressValue = document.getElementById('address').value
+  var housenumberValue = document.getElementById('housenumber').value
+  var payment = document.getElementById('payment').value
+  var age = document.getElementsByName('age')
+  array.push(fullnameValue);
+  array.push(emailValue);
+  array.push(adressValue);
+  array.push(housenumberValue);
+  array.push(payment);
+
+  for (var i = 0, length = age.length; i< length ; i++) {
+    if (age[i].checked) {
+      array.push(age[i].value);
+    }
+  }
+  return array
+}
+export {getInputText};
+//module.exports = getInputText;

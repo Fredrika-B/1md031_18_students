@@ -2,10 +2,10 @@
 <html lang="en">
     <link rel="stylesheet" type="text/css" href="\css\style.css">
     <head>
-        <script src="js/menu.js"></script>
-        <script src="js/js_script.js" defer> </script>
+        <script src="js/menu.js" defer></script>
+        <script type="module" src="js/js_script.js" defer> </script>
         <script src="https://vuejs.org/js/vue.js"></script>
-        <script src="js/vue_script.js" defer> </script>
+        <script type="module" src="js/vue_script.js" defer> </script>
         <title>Burger Pub</title>
         <meta charset="utf-8"/>
     </head>
@@ -14,6 +14,7 @@
           <img id = "headerpicture" src ="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-french-fries-horizontal-1537551908.jpg?crop=1xw:0.75xh;center,top&resize=1200:*" >
           <h1 id="headertext">The Burger Pub</h1>
         </section>
+    <main id= "bigID">
 
         <Section class="allburgers">
           <h1>The Burgers</h1>
@@ -51,7 +52,7 @@
           </div>
         </section>
 
-        <section class="contact">
+        <section id="contactID">
           <h1> Customer Information </h1>
             <p> Fill in the form below to get a home delivery. </p>
             <h1> Delivery Information </h1>
@@ -75,19 +76,30 @@
             </p>
             <p>
               <label for = "age">Are you over 18?</label><br>
-              <input type ="radio" id=overeighteen name = age >
+              <input type ="radio" id="overeighteen" name = "age" >
               <label for ="yes">Yes</label><br>
-              <input checked type ="radio" id=undereighteen name = age >
+              <input checked type ="radio" id="undereighteen" name = "age" >
               <label for ="no">No</label><br>
-              <input type ="radio" id=dontknow name = age >
+              <input type ="radio" id="dontknow" name = "age" >
               <label for ="notprovide">Do not wish to provide</label><br>
             </p>
+        
             </form>
         </section>
-
+<!--
         <button onclick="myFunction()"> <img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20"> Place my order! </button>
         <p id="myButtonID"></p>
 
+-->
+        <div>
+          <button v-on:click="getInputText()"><img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20">
+            Place my order!
+      <!--    <div id ="contactID" v-on:click=" getInputTexts "> </div> -->
+          </button>
+        <div> Kontaktinfo<p id="textOrderInfo"> </p> </div>
+        </div>
+
+      </main>
         <footer>
           <br>
           &copy; 2020 FreddieBurger Inc.

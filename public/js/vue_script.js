@@ -1,10 +1,53 @@
+import {getInputText} from '../js/js_script.js';
+
 var vm = new Vue({
-  el: '#myVueID',
+  el: '#bigID',
   data: {
-  burgers: burger
-  },
+    burgers: burger,
+    },
+  methods: {
+    getInputText: function() {
+    //  import {getInputText} from 'js/js_script.js';
+    textOrderInfo.textContent = getInputText();
+    console.log("Button Clicked")
+    console.log(getInputText());
+
+    }
+
+  }
+})
+/*
+var cm = new Vue({
+  el: '#contactID',
+  methods: {
+    getInputTexts: function() {
+    //  import {getInputText} from 'js/js_script.js';
+      console.log(inputArray);
+    }
+  }
+})
+*/
+//let getInputText = required('../functions/getInputText');
+//console.log(getInputText);
+//var inputArray = getInputText();
+//console.log(inputArray);
+/*
+var vclick = new Vue({
+  el: "#orders",
+
+  methods: {
+    getInputText: function() {
+    //  import {getInputText} from 'js/js_script.js';
+    textOrderInfo.textContent = getInputText();
+    console.log("Button Clicked")
+    console.log(getInputText());
+
+    }
+
+  }
 })
 
+*/
 
 /*
 function Burger(pname, lactose, gluten, sorder, img) {
