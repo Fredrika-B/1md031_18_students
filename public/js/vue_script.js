@@ -17,43 +17,46 @@ var vm = new Vue({
       this.karta = {details: { x: event.clientX - 10 - offset.x,
                                y: event.clientY - 10 - offset.y }};
      },
+
     addOrder: function (event) {
       socket.emit("addOrder", { orderId: Math.floor(Math.random()*(1000-1+1)+1), //randomnumber
-                                details: this.karta.details,
-                                orderItems: getInputText()[4] + ".",
-                                personInfo: ["Contact info: "
-                                    + getInputText()[0]
-                                    + ", " + getInputText()[1]
-                                    + ", " + getInputText()[2]
-                                    + ", " + getInputText()[3] ]} )
-        },
+                          details: this.karta.details,
+                          orderItems: [getInputText()[4]],
+                          personInfo: getInputText() } )
+console.log("hej:" + getInputText())
+console.log(this.karta.details)
 
-    getInputText: function() {
-    //console.log(getInputText()[4])
-    if (getInputText()[4] !== undefined) {
-        textOrderInfo.textContent = "Ordered burger: " + getInputText()[4]
-        + ". Your contact info:  "
-        + getInputText()[0]
-        + ", " + getInputText()[1]
-        + ", " + getInputText()[2]
-        + ", " + getInputText()[3]
-      }
-    else {
-      textOrderInfo.textContent = "Your contact info: "
-      + getInputText()[0]
-      + ", " + getInputText()[1]
-      + ", " + getInputText()[2]
-      + ", " + getInputText()[3]
+     }
+
+
     }
     }
+
+)
+
+/*
+getInputText: function() {
+//console.log(getInputText()[4])
+if (getInputText()[4] !== undefined) {
+    textOrderInfo.textContent = "Ordered burger: " + getInputText()[4]
+    + ". Your contact info:  "
+    + getInputText()[0]
+    + ", " + getInputText()[1]
+    + ", " + getInputText()[2]
+    + ", " + getInputText()[3]
   }
-})
+else {
+  textOrderInfo.textContent = "Your contact info: "
+  + getInputText()[0]
+  + ", " + getInputText()[1]
+  + ", " + getInputText()[2]
+  + ", " + getInputText()[3]
+*/
 
 /*
 //var order = {};
 'use strict';
 let socket = io();
-
 var vm = new Vue({
    el: '#dots',
    data: {
@@ -63,7 +66,6 @@ var vm = new Vue({
      socket.on('initialize', function (data) {
        this.orders = data.orders;
      }.bind(this));
-
      socket.on('currentQueue', function (data) {
        this.orders = data.orders;
      }.bind(this));
@@ -92,8 +94,6 @@ var vm = new Vue({
      }
    }
  });
-
-
 */
 /*
 var cm = new Vue({
@@ -113,19 +113,15 @@ var cm = new Vue({
 /*
 var vclick = new Vue({
   el: "#orders",
-
   methods: {
     getInputText: function() {
     //  import {getInputText} from 'js/js_script.js';
     textOrderInfo.textContent = getInputText();
     console.log("Button Clicked")
     console.log(getInputText());
-
     }
-
   }
 })
-
 */
 
 /*
@@ -136,7 +132,6 @@ function Burger(pname, lactose, gluten, sorder, img) {
  this.sideOrder = sorder;
  this.image = img;
 }
-
 var vm = new Vue({
  el: '#myVueID',
  data: {
