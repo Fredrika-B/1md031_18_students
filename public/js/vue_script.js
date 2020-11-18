@@ -1,36 +1,97 @@
 import {getInputText} from '../js/js_script.js';
 
+'use strict';
+var socket = io();
+
 var vm = new Vue({
   el: '#bigID',
   data: {
     burgers: burger,
+    orders: {},
+    karta: {details: {x:0, y:0}}
     },
   methods: {
+    displayOrder: function (event) {
+      var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                    y: event.currentTarget.getBoundingClientRect().top};
+      this.karta = {details: { x: event.clientX - 10 - offset.x,
+                               y: event.clientY - 10 - offset.y }};
+     },
+    addOrder: function (event) {
+      socket.emit("addOrder", { orderId: "T",
+                                details: this.karta,
+                                orderItems: [getInputText()[4]] } )
+      console.log("hej" + getInputText()[4])
+      console.log(this.karta)
+
+      },
     getInputText: function() {
-    console.log(getInputText()[6])
-    if (getInputText()[6] !== undefined) {
-        textOrderInfo.textContent = "Ordered burger: " + getInputText()[6]
+    //console.log(getInputText()[4])
+    if (getInputText()[4] !== undefined) {
+        textOrderInfo.textContent = "Ordered burger: " + getInputText()[4]
         + ". Your contact info:  "
         + getInputText()[0]
         + ", " + getInputText()[1]
         + ", " + getInputText()[2]
-        + " " + getInputText()[3]
-        + ", " + getInputText()[4]
-        + ", " + getInputText()[5]
+        + ", " + getInputText()[3]
       }
     else {
       textOrderInfo.textContent = "Your contact info: "
       + getInputText()[0]
       + ", " + getInputText()[1]
       + ", " + getInputText()[2]
-      + " " + getInputText()[3]
-      + ", " + getInputText()[4]
-      + ", " + getInputText()[5]
-
+      + ", " + getInputText()[3]
     }
     }
   }
 })
+
+/*
+//var order = {};
+'use strict';
+let socket = io();
+
+var vm = new Vue({
+   el: '#dots',
+   data: {
+     orders: {}
+   },
+   created: function () {
+     socket.on('initialize', function (data) {
+       this.orders = data.orders;
+     }.bind(this));
+
+     socket.on('currentQueue', function (data) {
+       this.orders = data.orders;
+     }.bind(this));
+   },
+   methods: {
+     getNext: function () {
+       var lastOrder = Object.keys(this.orders).reduce( function (last, next) {
+         return Math.max(last, next);
+       }, 0);
+       return lastOrder + 1;
+     },
+     addOrder: function (event) {
+/*
+         var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                       y: event.currentTarget.getBoundingClientRect().top};
+         socket.emit("addOrder", { orderId: this.getNext(),
+                                   details: { x: event.clientX - 100 - offset.x,
+                                              y: event.clientY - 1500 - offset.y },
+                                   orderItems: ["Beans", "Curry"]
+*//*
+       socket.emit("addOrder", { orderId: this.getNext(),
+                                 details: { x: event.clientX-100 - event.currentTarget.getBoundingClientRect().left,
+                                            y: event.clientY-1000 - event.currentTarget.getBoundingClientRect().top},
+                                 orderItems: ["Beans", "Curry"]
+                               });
+     }
+   }
+ });
+
+
+*/
 /*
 var cm = new Vue({
   el: '#contactID',

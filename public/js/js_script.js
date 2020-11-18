@@ -40,16 +40,16 @@ function getInputText() {
   var array = [];
   var fullnameValue = document.getElementById('fullname').value
   var emailValue = document.getElementById('email').value
-  var adressValue = document.getElementById('address').value
-  var housenumberValue = document.getElementById('housenumber').value
+//  var adressValue = document.getElementById('address').value
+//  var housenumberValue = document.getElementById('housenumber').value
   var payment = document.getElementById('payment').value
   var age = document.getElementsByName('age')
   var burgerBox = document.getElementsByName('burger')
 
   array.push(fullnameValue);
   array.push(emailValue);
-  array.push(adressValue);
-  array.push(housenumberValue);
+  //array.push(adressValue);
+  //array.push(housenumberValue);
   array.push(payment);
 
   for (var i = 0, length = age.length; i< length ; i++) {

@@ -1,54 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" type="text/css" href="\css\style.css">
     <head>
-        <script src="js/menu.js" defer></script>
-        <script type="module" src="js/js_script.js" defer> </script>
-        <script src="https://vuejs.org/js/vue.js"></script>
-        <script type="module" src="js/vue_script.js" defer> </script>
-        <title>Burger Pub</title>
-        <meta charset="utf-8"/>
+    <meta charset="utf-8" />
+  <!--  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <link rel="stylesheet" href="css/deli-very.css">
+    <link rel="stylesheet" type="text/css" href="\css\style.css">
+    <script src="js/menu.js" defer></script>
+    <script type="module" src="js/js_script.js" defer> </script>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script type="module" src="js/vue_script.js" defer> </script>
+  <!--  <script src="js/deli-very.js" defer></script>
+<script src="/vue/vue.js" defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ -->
+  <!--  <script src="js/deli-very.js" defer></script>
+
+
+    <script src="js/dispatcher.js" defer></script> -->
+    <title>Burger Pub</title>
+  </head>
+
+  <body>
+    <section class="header">
+      <img id="headerpicture" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-french-fries-horizontal-1537551908.jpg?crop=1xw:0.75xh;center,top&resize=1200:*">
+      <h1 id="headertext">The Burger Pub</h1>
+    </section>
+    <main id="bigID">
+
+      <Section class="allburgers">
+        <h1>The Burgers</h1>
+        Choose one of our tasts burgers by checking in the box below!
+        <br>
+        <div class="burgermenu" id="myVueID">
+          <div v-for="burger in burgers" v-if="burger.lactose == true || burger.gluten == true">
+            <div class="largertext"> {{burger.productName}}</div> <img :src="burger.image">
+            <div> Burger contains: </div>
+            <div v-if="burger.lactose == true" class="Bolded"> - lactose</div>
+            <div v-if="burger.gluten == true" class="Bolded"> - gluten</div><br>
+            <label for="burger"> Add {{burger.productName}} to the order:</label><br>
+            <input type="checkbox" id="burgerID" name="burger" :value="burger.productName">
+          </div>
+          <div v-else>
+            <div class="largertext">{{burger.productName }}</div> <img :src="burger.image">
+            <label for="burger"> Add {{burger.productName}} to the order:</label><br>
+            <input type="checkbox" id="burgerID" name="burger" :value="buger.productName">
+          </div>
+
+        </div>
+      </section>
+
+      <section id="contactID">
+        <h1> Customer Information </h1>
+        <p> Fill in the form below to get a home delivery. </p>
+        <h1> Delivery Information </h1>
+        <form>
+          <p> <label for="fullname">Full name</label><br>
+            <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name"></p>
+          <p> <label for="email">E-mail</label><br>
+            <input type="email" id="email" name="em" required="required" placeholder="write.your.email@here.se"></p>
+          <!--  <p> <label for="adress">Street</label><br>
+                <input type="text" id = "address" name ="sa" required = "required" placeholder="Street name"></p>
+            <p> <label for="housenumb">House</label><br>
+                <input type="number" id = "housenumber" name ="hn" required = "required" placeholder="House number"></p> -->
+          <p>
+            <label for="paymentmethod">Choose a payment method:</label><br>
+            <select id="payment" name="pm">
+              <option>Card</option>
+              <option>Swish</option>
+              <option>E-Invoice</option>
+              <option>Invoice</option>
+            </select>
+          </p>
+          <p>
+            <label for="age">Are you over 18?</label><br>
+            <input type="radio" id="overeighteen" name="age" value="Over eighteen">
+            <label for="yes">Yes</label><br>
+            <input checked type="radio" id="undereighteen" name="age" value="Under eighteen">
+            <label for="no">No</label><br>
+            <input type="radio" id="dontknow" name="age" value="Do not wish to provide">
+            <label for="notprovide">Do not wish to provide</label><br>
+          </p>
+        </form>
+      </section>
+
+      <h1> Click in the map! </h1>
+      <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+      <div class="view-box">
+      <!--    <div id="dots" v-on:click="addOrder"> -->
+          <div id="dots" v-on:click="displayOrder">
+
+        <!--    <div
+              v-for="(order, key) in orders"
+              v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}"> -->
+              <div v-bind:style="{ left: karta.details.x + 'px', top: karta.details.y + 'px'}">
+              <!-- {{key}}  --> T
+              </div>
+        </div>
+      </div>
+      <!--
+        <button onclick="myFunction()"> <img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20"> Place my order! </button>
+        <p id="myButtonID"></p>
+
+-->
+    <!--  <div>
+        <button v-on:click="getInputText()"><img src="https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20">
+          Place my order!
+        </button>
+        <div v-on:click="getInputText()">
+          <p id="textOrderInfo"> </p>
+        </div>
+      </div> -->
+
+      <div>
+        <button v-on:click="addOrder()"><img src="https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20">
+          Place my order!
+          <!--    <div id ="contactID" v-on:click=" getInputTexts "> </div> -->
+        </button>
+        <div v-on:click="addOrder()">
+          <p id="bigID"> </p>
+        </div>
+      </div>
+
+
+
+
+  </main>
+<!--
+    <head>
+
     </head>
     <body>
-        <section class ="header">
-          <img id = "headerpicture" src ="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-french-fries-horizontal-1537551908.jpg?crop=1xw:0.75xh;center,top&resize=1200:*" >
-          <h1 id="headertext">The Burger Pub</h1>
-        </section>
-    <main id= "bigID">
+      <h1> Click in the map! </h1>
+      <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+      <div class="view-box">
+       <div id="dots" v-on:click="addOrder">
+          <div id="dots" v-on:click="displayOrder">
 
-        <Section class="allburgers">
-          <h1>The Burgers</h1>
-            Lets choose one of our tasty, veggie burgers!
-          <br>
-          <div class ="burgermenu" id="myVueID">
-            <div v-for="burger in burgers" v-if="burger.lactose == true || burger.gluten == true">
-              <div class="largertext"> {{burger.productName}}</div> <img :src = "burger.image">
-              <div> Burger contains: </div>
-              <div v-if="burger.lactose == true" class="Bolded"> - lactose</div>
-              <div v-if="burger.gluten == true" class="Bolded"> - gluten</div>
-              <label for = "burger"> Choose: {{burger.productName}}</label><br>
-              <input type ="checkbox" id="burgerID" name = "burger" :value = "burger.productName" >
-            </div>
-            <div v-else> <div class="largertext">{{burger.productName }}</div> <img :src = "burger.image">
-            <label for = "burger"> Choose: {{burger.productName}}</label><br>
-            <input type ="checkbox" id="burgerID" name = "burger" :value = "buger.productName">
+        <div
+              v-for="(order, key) in orders"
+              v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+              <div v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+              {{key}}   T
+
             </div>
 
-          </div>
-        </section>
+        </div>
 
-<!--
-        <p>
-          <label for = "age">Are you over 18?</label><br>
-          <input type ="radio" id="overeighteen" name = "age" value="Over eighteen">
-          <label for ="yes">Yes</label><br>
-          <input checked type ="radio" id="undereighteen" name = "age" value="Under eighteen">
-          <label for ="no">No</label><br>
-          <input type ="radio" id="dontknow" name = "age" value="Do not wish to provide">
-          <label for ="notprovide">Do not wish to provide</label><br>
-        </p>
+      </div>
+
+    </body>
+    </html>
 -->
 
+
+    <footer>
+      <br>
+      &copy; 2020 FreddieBurger Inc.
+    </footer>
+  </body>
+
+</html>
+
+
+
+<!--
         <section class = "drinks">
           <h1>The Drinks</h1>
           <div class = "drinktable">
@@ -69,58 +185,4 @@
             </div>
           </div>
         </section>
-
-        <section id="contactID">
-          <h1> Customer Information </h1>
-            <p> Fill in the form below to get a home delivery. </p>
-            <h1> Delivery Information </h1>
-            <form>
-            <p> <label for="fullname">Full name</label><br>
-                <input type="text" id = "fullname" name ="fn" required = "required" placeholder="First- and Last name"></p>
-            <p> <label for="email">E-mail</label><br>
-                <input type="email" id = "email" name ="em" required = "required" placeholder="write.your.email@here.se"></p>
-            <p> <label for="adress">Street</label><br>
-                <input type="text" id = "address" name ="sa" required = "required" placeholder="Street name"></p>
-            <p> <label for="housenumb">House</label><br>
-                <input type="number" id = "housenumber" name ="hn" required = "required" placeholder="House number"></p>
-            <p>
-                <label for="paymentmethod">Choose a payment method:</label><br>
-                <select id="payment" name="pm">
-                    <option>Card</option>
-                    <option>Swish</option>
-                    <option>E-Invoice</option>
-                    <option>Invoice</option>
-                </select>
-            </p>
-            <p>
-              <label for = "age">Are you over 18?</label><br>
-              <input type ="radio" id="overeighteen" name = "age" value="Over eighteen">
-              <label for ="yes">Yes</label><br>
-              <input checked type ="radio" id="undereighteen" name = "age" value="Under eighteen">
-              <label for ="no">No</label><br>
-              <input type ="radio" id="dontknow" name = "age" value="Do not wish to provide">
-              <label for ="notprovide">Do not wish to provide</label><br>
-            </p>
-
-            </form>
-        </section>
-<!--
-        <button onclick="myFunction()"> <img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20"> Place my order! </button>
-        <p id="myButtonID"></p>
-
 -->
-        <div>
-          <button v-on:click="getInputText()"><img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20">
-            Place my order!
-      <!--    <div id ="contactID" v-on:click=" getInputTexts "> </div> -->
-          </button>
-        <div v-on:click="getInputText()"> <p id="textOrderInfo"> </p> </div>
-        </div>
-
-      </main>
-        <footer>
-          <br>
-          &copy; 2020 FreddieBurger Inc.
-        </footer>
-    </body>
-</html>
