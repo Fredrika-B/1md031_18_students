@@ -20,12 +20,14 @@ var vm = new Vue({
     addOrder: function (event) {
       socket.emit("addOrder", { orderId: Math.floor(Math.random()*(1000-1+1)+1), //randomnumber
                                 details: this.karta.details,
-                                orderItems: [getInputText()[4]],
-                                personInfo: getInputText() } )
-      console.log("hej:" + getInputText())
-      console.log(this.karta.details)
+                                orderItems: getInputText()[4] + ".",
+                                personInfo: ["Contact info: "
+                                    + getInputText()[0]
+                                    + ", " + getInputText()[1]
+                                    + ", " + getInputText()[2]
+                                    + ", " + getInputText()[3] ]} )
+        },
 
-      },
     getInputText: function() {
     //console.log(getInputText()[4])
     if (getInputText()[4] !== undefined) {
