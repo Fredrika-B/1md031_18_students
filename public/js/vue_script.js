@@ -18,11 +18,12 @@ var vm = new Vue({
                                y: event.clientY - 10 - offset.y }};
      },
     addOrder: function (event) {
-      socket.emit("addOrder", { orderId: "T",
-                                details: this.karta,
-                                orderItems: [getInputText()[4]] } )
-      console.log("hej" + getInputText()[4])
-      console.log(this.karta)
+      socket.emit("addOrder", { orderId: Math.floor(Math.random()*(1000-1+1)+1), //randomnumber
+                                details: this.karta.details,
+                                orderItems: [getInputText()[4]],
+                                personInfo: getInputText() } )
+      console.log("hej:" + getInputText())
+      console.log(this.karta.details)
 
       },
     getInputText: function() {
