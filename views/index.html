@@ -94,16 +94,17 @@
          <button  v-on:click="addOrder()"><img src="https://i.pinimg.com/originals/19/e4/14/19e414fbd49865492c836da99cc91de8.png" width="15">
           <h2 class="Bolded"> {{orderStatus}} </h2>
          </button>
-         
+
          <section>
            <div id="submitID"  v-on:click="addOrder()">
              <p class="Bolded">  {{summaryText}} </p>
-
              <p v-on:click="addOrder()">  {{contactOrder}} </p>
              <p v-on:click="addOrder()"> {{contactText}} </p>
              <p v-on:click="addOrder()"> {{deliverTo}} </p>
+             <p class="Bolded" v-on:click="addOrder()">  {{thanksText}}  </p>  
            </div>
          </section>
+
        </div>
 
   </main>

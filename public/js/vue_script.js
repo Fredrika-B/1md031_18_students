@@ -14,7 +14,8 @@ var vm = new Vue({
     contactText: "",
     contactOrder:"",
     summaryText: "",
-    deliverTo:""
+    deliverTo:"",
+    thanksText:""
     },
   methods: {
     displayOrder: function (event) {
@@ -23,7 +24,6 @@ var vm = new Vue({
       this.karta = {details: { x: event.clientX - 10 - offset.x,
                                y: event.clientY - 10 - offset.y }};
      },
-
     addOrder: function (event) {
       this.orderStatus = "ORDER SENT!";
       this.contactText =  "Your contact info: " + getInputText() ;
@@ -32,11 +32,15 @@ var vm = new Vue({
       var numberX = this.karta.details.x; var roundedX = Math.round(numberX * 10) / 10;
       var numberY = this.karta.details.y; var roundedY = Math.round(numberY * 10) / 10;
       this.deliverTo = "Deliver to: " + roundedX +" x / "+ roundedY + " y";
-
-      socket.emit("addOrder", { orderId: "Item "+ Math.floor(Math.random()*(1000-1+1)+1),
-                          details: this.karta.details,
-                          orderItems: getOrder(),
-                          personInfo: getInputText()[0] + getInputText()[1] + getInputText()[2] + getInputText()[3]   } );
+      this.thanksText = "Thank you for your order!";
+      var randNumb = Math.floor(Math.random()*(1000-1+1)+1);
+      socket.emit("addOrder", { orderId: randNumb,
+                                details: this.karta.details,
+                                orderItems: getOrder(),
+                                personInfo: getInputText()[0] +
+                                            getInputText()[1] +
+                                            getInputText()[2] +
+                                            getInputText()[3]  });
       }
   }
 })
