@@ -3,8 +3,8 @@
 var burger = [
   {
   "productName": "The Chili Dream",
-  "lactose": false,
-  "gluten": true,
+  "lactose": true,
+  "gluten": false,
   "image": "https://brands-a.prod.onewp.net/app/uploads/sites/26/2018/05/ro%CC%88kig-burgare-med-karamelliserad-lo%CC%88k.jpg"
   },
   {

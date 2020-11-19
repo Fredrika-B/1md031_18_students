@@ -1,3 +1,6 @@
+#wholePage {
+  background-color: beige;
+}
 .header {
   height: 200px;
   overflow:hidden;
@@ -9,11 +12,13 @@
   height: auto;
 }
 #headertext{
-    font-size: 2em;
+    font-size: 2.5em;
     position: absolute;
     margin-top: -700px;
     padding: 50px 150px;
+    color: darkgreen;
 }
+
 img {
   width:250px;
 }
@@ -24,6 +29,46 @@ body {
 section {
   margin: 60px 5px;
 }
+
+#contactID {
+  border: 4px dotted black;
+  padding: 1px 10px 1px;
+}
+
+#submitID {
+  margin: 0px 50px 30px 50px;
+  width: 40%;
+  color: black;
+}
+
+button {
+  margin: 0px 50px 30px 50px;
+  border: 10px dotted lightgreen;
+  padding: 1px 10px 1px;
+}
+
+button:hover {
+  background-color: lightgreen;
+  cursor: grab ;
+}
+
+#footer {
+  background-color: lightgreen;
+  
+  font-weight: bold;
+    font-size: 1.2em;
+}
+
+.Bolded {
+  font-weight: bold;
+}
+.largertext {
+  font-size: 1.3em
+}
+
+
+
+
 
 .allburgers {
   background-color: black;
@@ -52,56 +97,4 @@ section {
 }
 .c {
   grid-column: 3 /span 1;
-}
-
-.drinks {
-  background-color: PeachPuff;
-  color: black;
-  border: 4px dotted black;
-  padding: 1px 10px 0px;
-}
-.drinktable {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 450px 450px 450px;
-
-}
-.criteria {
-  background-color: peachpuff;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 1.3em;
-}
-.label {
-  grid-column: 1/span 1;
-}
-.taste {
-  grid-column: 2/span 1;
-}
-.price {
-  grid-column: 3/span 1;
-}
-
-.Bolded {
-  font-weight: bold;
-}
-.largertext {
-  font-size: 1.3em
-}
-
-
-#contactID {
-  border: 4px dotted black;
-  padding: 1px 10px 1px;
-}
-
-button {
-  margin: 0px 50px 30px 50px;
-  border: 10px dotted peachpuff;
-  padding: 1px 10px 1px;
-}
-
-button:hover {
-  background-color:PeachPuff;
-  cursor: grab ;
 }

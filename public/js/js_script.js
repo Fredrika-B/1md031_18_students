@@ -1,4 +1,44 @@
-/*
+
+function getOrder() {
+  var array = [];
+  var burgerBox = document.getElementsByName('burger')
+  for (var i = 0, length = burgerBox.length; i< length ; i++) {
+    if (burgerBox[i].checked) {
+      array.push((burgerBox[i].value));
+    }
+  }
+  return array
+}
+
+function getInputText() {
+  var array = [];
+  var fullnameValue = "name: " + document.getElementById('fullname').value
+  var emailValue = " e-mail: " + document.getElementById('email').value
+//  var adressValue = document.getElementById('address').value
+//  var housenumberValue = document.getElementById('housenumber').value
+  var payment = " payment: " + document.getElementById('payment').value
+  var age = document.getElementsByName('age')
+
+  array.push(fullnameValue);
+  array.push(emailValue);
+  //array.push(adressValue);
+  //array.push(housenumberValue);
+  array.push(payment);
+
+  for (var i = 0, length = age.length; i< length ; i++) {
+    if (age[i].checked) {
+      array.push((" age:" + age[i].value));
+    }
+  }
+  return array
+}
+
+export {getInputText};
+export {getOrder};
+
+
+/* OLD CODE
+MENY FUNCTION
 function MenuItem(pname, lactose, gluten, sorder) {
 this.productName = pname;
 this.lactose = lactose;
@@ -29,43 +69,10 @@ listItem.appendChild(listValue);
 myMenu.appendChild(listItem);
 }
 */
+//BUTTON FUNCTION
 /*
 function myFunction () {
   document.getElementById("myButtonID").innerHTML = "Button clicked - Order placed!"
   console.log("Button clicked - Order placed")
 }
 */
-
-function getInputText() {
-  var array = [];
-  var fullnameValue = document.getElementById('fullname').value
-  var emailValue = document.getElementById('email').value
-//  var adressValue = document.getElementById('address').value
-//  var housenumberValue = document.getElementById('housenumber').value
-  var payment = document.getElementById('payment').value
-  var age = document.getElementsByName('age')
-  var burgerBox = document.getElementsByName('burger')
-
-  array.push(fullnameValue);
-  array.push(emailValue);
-  //array.push(adressValue);
-  //array.push(housenumberValue);
-  array.push(payment);
-
-  for (var i = 0, length = age.length; i< length ; i++) {
-    if (age[i].checked) {
-      array.push((age[i].value));
-    }
-  }
-  for (var i = 0, length = burgerBox.length; i< length ; i++) {
-    if (burgerBox[i].checked) {
-      array.push((burgerBox[i].value));
-    }
-  }
-  return array
-}
-export {getInputText};
-
-
-
-//module.exports = getInputText;

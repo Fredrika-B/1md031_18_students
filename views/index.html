@@ -1,58 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="wholePage">
     <head>
-    <meta charset="utf-8" />
-  <!--  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <link rel="stylesheet" href="css/deli-very.css">
-    <link rel="stylesheet" type="text/css" href="\css\style.css">
-    <script src="js/menu.js" defer></script>
-    <script type="module" src="js/js_script.js" defer> </script>
-    <script src="https://vuejs.org/js/vue.js"></script>
-    <script src="/socket.io/socket.io.js" defer></script>
-    <script type="module" src="js/vue_script.js" defer> </script>
-  <!--  <script src="js/deli-very.js" defer></script>
-<script src="/vue/vue.js" defer></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
- -->
-  <!--  <script src="js/deli-very.js" defer></script>
-
-
-    <script src="js/dispatcher.js" defer></script> -->
-    <title>Burger Pub</title>
-  </head>
+      <meta charset="utf-8" />
+      <link rel="stylesheet" href="css/deli-very.css">
+      <link rel="stylesheet" type="text/css" href="\css\style.css">
+      <script src="js/menu.js" defer></script>
+      <script type="module" src="js/js_script.js" defer> </script>
+      <script src="https://vuejs.org/js/vue.js"></script>
+      <script src="/socket.io/socket.io.js" defer></script>
+      <script type="module" src="js/vue_script.js" defer> </script>
+      <title>Freddie's Burger Pub </title>
+    </head>
 
   <body>
     <section class="header">
       <img id="headerpicture" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-french-fries-horizontal-1537551908.jpg?crop=1xw:0.75xh;center,top&resize=1200:*">
-      <h1 id="headertext">The Burger Pub</h1>
+      <h1 id="headertext">Freddie's Burger Pub </h1>
     </section>
+
     <main id="bigID">
 
       <Section class="allburgers">
         <h1>The Burgers</h1>
-        Choose one of our tasts burgers by checking in the box below!
+        <h3> Choose one of our tasty burgers by checking in the box below! </h3>
         <br>
         <div class="burgermenu" id="myVueID">
           <div v-for="burger in burgers" v-if="burger.lactose == true || burger.gluten == true">
-            <div class="largertext"> {{burger.productName}}</div> <img :src="burger.image">
+            <div class="largertext"> {{burger.productName}}</div> <img :src="burger.image" height="180">
             <div> Burger contains: </div>
-            <div v-if="burger.lactose == true" class="Bolded"> - lactose</div>
-            <div v-if="burger.gluten == true" class="Bolded"> - gluten</div><br>
-            <label for="burger"> Add {{burger.productName}} to the order:</label><br>
-            <input type="checkbox" id="burgerID" name="burger" :value="burger.productName">
+            <div v-if="burger.lactose == true" class="Bolded"> - lactose </div>
+              <div v-else> <br> </div>
+            <div v-if="burger.gluten == true" class="Bolded"> - gluten </div>
+              <div v-else> <br> </div>
+            <section>
+            <label class="Bolded" for="burger"> Add {{burger.productName}}:</label><br>
+            <input type="checkbox" id="burgerID" name="burger" :value=" burger.productName">
+          </section>
           </div>
           <div v-else>
-            <div class="largertext">{{burger.productName }}</div> <img :src="burger.image">
-            <label for="burger"> Add {{burger.productName}} to the order:</label><br>
-            <input type="checkbox" id="burgerID" name="burger" :value="buger.productName">
+            <div class="largertext">{{burger.productName }}</div> <img :src="burger.image" height="180">
+            Burger does not contain gluten or lactose. <br> <br> <br> <br>
+            <label class="Bolded" for="burger"> Add {{burger.productName}}:</label><br>
+            <input type="checkbox" id="burgerID" name="burger" :value=" burger.productName">
           </div>
-
         </div>
       </section>
 
       <section id="contactID">
         <h1> Customer Information </h1>
-        <p> Fill in the form below to get a home delivery. </p>
+        <p> Fill in the form below to order and get a home delivery. </p>
         <h1> Delivery Information </h1>
         <form>
           <p> <label for="fullname">Full name</label><br>
@@ -66,104 +62,78 @@
           <p>
             <label for="paymentmethod">Choose a payment method:</label><br>
             <select id="payment" name="pm">
-              <option>Card</option>
-              <option>Swish</option>
-              <option>E-Invoice</option>
-              <option>Invoice</option>
+              <option>card</option>
+              <option>swish</option>
+              <option>e-Invoice</option>
+              <option>invoice</option>
             </select>
           </p>
           <p>
             <label for="age">Are you over 18?</label><br>
-            <input type="radio" id="overeighteen" name="age" value="Over eighteen">
+            <input type="radio" id="overeighteen" name="age" value=" over 18">
             <label for="yes">Yes</label><br>
-            <input checked type="radio" id="undereighteen" name="age" value="Under eighteen">
+            <input checked type="radio" id="undereighteen" name="age" value=" under 18">
             <label for="no">No</label><br>
-            <input type="radio" id="dontknow" name="age" value="Do not wish to provide">
+            <input type="radio" id="dontknow" name="age" value=" do not wish to provide">
             <label for="notprovide">Do not wish to provide</label><br>
           </p>
         </form>
-      </section>
 
-      <h1> Click in the map! </h1>
-      <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+      <h4> Please indicate point of delivery by clicking the map below: </h4>
       <div class="view-box">
-      <!--    <div id="dots" v-on:click="addOrder"> -->
           <div id="dots" v-on:click="displayOrder">
-
-        <!--    <div
-              v-for="(order, key) in orders"
-              v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}"> -->
               <div v-bind:style="{ left: karta.details.x + 'px', top: karta.details.y + 'px'}">
-              <!-- {{key}}  --> T
+                T
               </div>
         </div>
       </div>
-      <!--
-        <button onclick="myFunction()"> <img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20"> Place my order! </button>
-        <p id="myButtonID"></p>
-
--->
-    <!--  <div>
-        <button v-on:click="getInputText()"><img src="https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20">
-          Place my order!
-        </button>
-        <div v-on:click="getInputText()">
-          <p id="textOrderInfo"> </p>
-        </div>
-      </div> -->
+      <h4> Happy with your order? Submit it by pressing the button below. </h4>
+      </section>
 
       <div>
-         <button v-on:click="addOrder()"><img src="https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20">
-           Place my order!
-           <!--    <div id ="contactID" v-on:click=" getInputTexts "> </div> -->
+         <button  v-on:click="addOrder()"><img src="https://i.pinimg.com/originals/19/e4/14/19e414fbd49865492c836da99cc91de8.png" width="15">
+          <h2 class="Bolded"> {{orderStatus}} </h2>
          </button>
-         <div v-on:click="addOrder()">
-           
-         </div>
+         
+         <section>
+           <div id="submitID"  v-on:click="addOrder()">
+             <p class="Bolded">  {{summaryText}} </p>
+
+             <p v-on:click="addOrder()">  {{contactOrder}} </p>
+             <p v-on:click="addOrder()"> {{contactText}} </p>
+             <p v-on:click="addOrder()"> {{deliverTo}} </p>
+           </div>
+         </section>
        </div>
 
   </main>
 
-  <footer>
+  <footer id="footer">
     <br>
     &copy; 2020 FreddieBurger Inc.
+     <p> </p>
   </footer>
+
 </body>
-
 </html>
+
 <!--
-    <head>
+OLD CODE
+BUTTON TO JAVASCRIPT
+  <button onclick="myFunction()"> <img src = "https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20"> Place my order! </button>
+  <p id="myButtonID"></p>
 
-    </head>
-    <body>
-      <h1> Click in the map! </h1>
-      <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
-      <div class="view-box">
-       <div id="dots" v-on:click="addOrder">
-          <div id="dots" v-on:click="displayOrder">
-
-        <div
-              v-for="(order, key) in orders"
-              v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-              <div v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-              {{key}}   T
-
-            </div>
-
-        </div>
-
-      </div>
-
-    </body>
-    </html>
+  <div>
+  <button v-on:click="getInputText()"><img src="https://cdn0.iconfinder.com/data/icons/hand-gestures-vol-1/48/39-512.png" width="20">
+    Place my order!
+  </button>
+  <div v-on:click="getInputText()">
+    <p id="textOrderInfo"> </p>
+  </div>
+</div>
 -->
 
-
-
-
-
-
-<!--
+<!-- I HAD A DRINK MENU BEFORE
         <section class = "drinks">
           <h1>The Drinks</h1>
           <div class = "drinktable">

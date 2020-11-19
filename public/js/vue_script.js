@@ -1,4 +1,5 @@
 import {getInputText} from '../js/js_script.js';
+import {getOrder} from '../js/js_script.js';
 
 'use strict';
 var socket = io();
@@ -8,7 +9,12 @@ var vm = new Vue({
   data: {
     burgers: burger,
     orders: {},
-    karta: {details: {x:0, y:0}}
+    karta: {details: {x:0, y:0}},
+    orderStatus: "PLACE MY ORDER",
+    contactText: "",
+    contactOrder:"",
+    summaryText: "",
+    deliverTo:""
     },
   methods: {
     displayOrder: function (event) {
@@ -19,22 +25,25 @@ var vm = new Vue({
      },
 
     addOrder: function (event) {
-      socket.emit("addOrder", { orderId: Math.floor(Math.random()*(1000-1+1)+1), //randomnumber
+      this.orderStatus = "ORDER SENT!";
+      this.contactText =  "Your contact info: " + getInputText() ;
+      this.contactOrder = "You have ordered: " + getOrder();
+      this.summaryText = "Order summary:" ;
+      var numberX = this.karta.details.x; var roundedX = Math.round(numberX * 10) / 10;
+      var numberY = this.karta.details.y; var roundedY = Math.round(numberY * 10) / 10;
+      this.deliverTo = "Deliver to: " + roundedX +" x / "+ roundedY + " y";
+
+      socket.emit("addOrder", { orderId: "Item "+ Math.floor(Math.random()*(1000-1+1)+1),
                           details: this.karta.details,
-                          orderItems: [getInputText()[4]],
-                          personInfo: getInputText() } )
-console.log("hej:" + getInputText())
-console.log(this.karta.details)
+                          orderItems: getOrder(),
+                          personInfo: getInputText()[0] + getInputText()[1] + getInputText()[2] + getInputText()[3]   } );
+      }
+  }
+})
 
-     }
 
-
-    }
-    }
-
-)
-
-/*
+//SOME OF MY OLD FUNCTIONS:
+/* OLD FUNCTION FOR DISPLAYING ORDER, A PART OF VUE OBJECT
 getInputText: function() {
 //console.log(getInputText()[4])
 if (getInputText()[4] !== undefined) {
@@ -53,69 +62,12 @@ else {
   + ", " + getInputText()[3]
 */
 
-/*
-//var order = {};
-'use strict';
-let socket = io();
-var vm = new Vue({
-   el: '#dots',
-   data: {
-     orders: {}
-   },
-   created: function () {
-     socket.on('initialize', function (data) {
-       this.orders = data.orders;
-     }.bind(this));
-     socket.on('currentQueue', function (data) {
-       this.orders = data.orders;
-     }.bind(this));
-   },
-   methods: {
-     getNext: function () {
-       var lastOrder = Object.keys(this.orders).reduce( function (last, next) {
-         return Math.max(last, next);
-       }, 0);
-       return lastOrder + 1;
-     },
-     addOrder: function (event) {
-/*
-         var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                       y: event.currentTarget.getBoundingClientRect().top};
-         socket.emit("addOrder", { orderId: this.getNext(),
-                                   details: { x: event.clientX - 100 - offset.x,
-                                              y: event.clientY - 1500 - offset.y },
-                                   orderItems: ["Beans", "Curry"]
-*//*
-       socket.emit("addOrder", { orderId: this.getNext(),
-                                 details: { x: event.clientX-100 - event.currentTarget.getBoundingClientRect().left,
-                                            y: event.clientY-1000 - event.currentTarget.getBoundingClientRect().top},
-                                 orderItems: ["Beans", "Curry"]
-                               });
-     }
-   }
- });
-*/
-/*
-var cm = new Vue({
-  el: '#contactID',
-  methods: {
-    getInputTexts: function() {
-    //  import {getInputText} from 'js/js_script.js';
-      console.log(inputArray);
-    }
-  }
-})
-*/
-//let getInputText = required('../functions/getInputText');
-//console.log(getInputText);
-//var inputArray = getInputText();
-//console.log(inputArray);
+
 /*
 var vclick = new Vue({
   el: "#orders",
   methods: {
     getInputText: function() {
-    //  import {getInputText} from 'js/js_script.js';
     textOrderInfo.textContent = getInputText();
     console.log("Button Clicked")
     console.log(getInputText());
@@ -125,13 +77,7 @@ var vclick = new Vue({
 */
 
 /*
-function Burger(pname, lactose, gluten, sorder, img) {
- this.productName = pname;
- this.lactose = lactose;
- this.gluten = gluten;
- this.sideOrder = sorder;
- this.image = img;
-}
+// OLD VUE OBJECT TO CREATE HAMBURGERS
 var vm = new Vue({
  el: '#myVueID',
  data: {
